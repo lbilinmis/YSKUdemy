@@ -1,0 +1,65 @@
+﻿@model List<UserListViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<section class="wrapper bg-light">
+  <div class="container py-14 py-md-16">
+    <h2 class="display-4 mb-3 text-center">Happy Customers</h2>
+    <p class="lead text-center mb-6 px-md-16 px-lg-0">Customer satisfaction is our major goal. See what our customers are saying about us.</p>
+    <div class="position-relative">
+      <div class="shape rounded-circle bg-soft-yellow rellax w-16 h-16" data-rellax-speed="1" style="bottom: 0.5rem; right: -1.7rem;"></div>
+      <div class="shape bg-dot primary rellax w-16 h-16" data-rellax-speed="1" style="top: -1rem; left: -1.7rem;"></div>
+      <div class="swiper-container dots-closer mb-6" data-margin="0" data-dots="true" data-items-xl="3" data-items-md="2" data-items-xs="1">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+          
+              @foreach (var item in Model)
+                        {
+
+                            <!--/.swiper-slide -->
+                            <div class="swiper-slide">
+                                <div class="item-inner">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <blockquote class="icon mb-0">
+                                                <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod semper. Cras justo odio dapibus facilisis sociis natoque penatibus.”</p>
+                                                <div class="blockquote-details">
+                                                    <img class="rounded-circle w-12" src="/frontend/assets/img/avatars/te6.jpg" srcset="/frontend/assets/img/avatars/te6@2x.jpg 2x" alt="" />
+                                                    <div class="info">
+                                                        <h5 class="mb-1">@(item.Name+" "+item.SurName)</h5>
+                                                    
+                                                            <getAccountCount app-user-id="@item.Id"></getAccountCount>
+                                                     
+                                      <a class="btn btn-success" asp-action="Create" asp-controller="Account" asp-route-id="@item.Id">Create Account</a>
+                                             
+                                                    </div>
+                                                </div>
+                                            </blockquote>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.item-inner -->
+                            </div>
+                        }
+
+
+            <!--/.swiper-slide -->
+          </div>
+          <!--/.swiper-wrapper -->
+        </div>
+        <!-- /.swiper -->
+      </div>
+      <!-- /.swiper-container -->
+    </div>
+    <!-- /.position-relative -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /section -->
+
+

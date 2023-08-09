@@ -1,0 +1,51 @@
+﻿@model UserListViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Hesaplar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Model.Name</td>
+                <td>@Model.SurName</td>
+                <td><getAccountCount app-user-id="@Model.Id"></getAccountCount></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="col-md-6">
+    <form asp-action="Create" asp-controller="Account">
+        <input type="hidden" name="AppUserId" value="@Model.Id" />
+       
+        <div class="form-floating mb-4">
+            <input type="number" name="AccountNumber" class="form-control" placeholder="AccountNumber">
+            <label for="AccountNumber"></label>
+        </div>
+
+        <div class="form-floating mb-4">
+            <input type="number" name="Balance" class="form-control" placeholder="Balance">
+            <label for="Balance"></label>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-success">Ekle</button>
+        </div>
+    </form>
+
+</div>
+
+
+<!-- /.form-floating -->
